@@ -73,7 +73,7 @@ body {
 .infos--section--offer--logo {
   position: relative;
   top: 12px;
-  right: 148px;
+  right: 40%;
   width: 15%;
   border-radius: 50px;
   background-color: #50acdb;
@@ -197,4 +197,32 @@ body {
 @keyframes slideMap {
   0% {top:500px;}
   100% {top: 0px;}
+}
+
+/* STYLE RESPONSIVE: IPHONE X */
+
+.infos--section--title--responsive {
+  margin-top: 20%;
+  font-size: 1.6em;
+  line-height: 0.6;
+}
+
+.infos--section--title--offer--responsive {
+  margin-top: 20%;
+  font-size: 1.4em;
+}
+
+.infos--section--mentions--responsive {
+  margin-top: 26%;
+  font-size: 1.3em;
+}
+
+.infos--section--title--commercial--offer--responsive {
+  font-size: 1.4em;
+  margin-top: 27%;
+}
+
+.infos--section--title--location--responsive {
+  font-size: 1.8em;
+  margin-top: 34%;
 }
