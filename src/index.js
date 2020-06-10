@@ -1,5 +1,26 @@
-// DOM variables
+// // DOM variables
 const infosSection = document.querySelector(".infos--section");
+
+function responsive(parentDivName, newDivName) {
+  const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  // Get the device pixel ratio
+  const ratio = window.devicePixelRatio || 1;
+
+  // Define the users device screen dimensions
+  const screen = {
+    width : window.screen.width * ratio,
+    height : window.screen.height * ratio
+  };
+
+  // iPhone X Detection
+  if (iOS && screen.width == 1125 && screen.height === 2436) {
+    document.querySelector('.infos--section').style.height = '66%';
+    document.querySelector('.video--section') && (document.querySelector('.video--section').style.height = '34%');
+    document.querySelector('.map--section--img') && (document.querySelector('.map--section--img').style.height = '100%');
+    document.querySelector(`${parentDivName}`).classList.add(`${newDivName}`);
+  }
+}
 
 // Function to create elements
 function createPubText(parentDomElement, ParentClassnameElement, childDomElement, childClassnameElement, arrItems = []) {
@@ -34,26 +55,29 @@ function pubSlogan() {
 
     let htmlDivMentionsContent = document.createElement("p");
     htmlDivMentionsContent.innerHTML = `
-      * Prix de vente TTC conseillé en magasin. ** Du 24/08/2017 au 31/10/2017
-      `;
+    * Prix de vente TTC conseillé en magasin. ** Du 24/08/2017 au 31/10/2017
+    `;
     let htmlDivMentionsConditionsContent = document.createElement("p");
     htmlDivMentionsConditionsContent.innerHTML = `
-        Voir conditions complètes sur krys.com/offre-rentree-2017
-      `;
+    Voir conditions complètes sur krys.com/offre-rentree-2017
+    `;
     let htmlDivMentionsMedicalContent = document.createElement("p");
     htmlDivMentionsMedicalContent.innerHTML = `
-        Dispositif médical. Consultez un professionnel de santé.
-      `;
+    Dispositif médical. Consultez un professionnel de santé.
+    `;
 
     htmlDivMentions.append(htmlDivMentionsContent, htmlDivMentionsConditionsContent, htmlDivMentionsMedicalContent);
 
     infosSection.appendChild(htmlDivMentions);
 
+    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive');
+    responsive('.infos--section--mentions', 'infos--section--mentions--responsive');
+
     textOffer(htmlDivMentions);
   }, 2000);
 }
 
-// Function to display offer text
+// // // Function to display offer text
 function textOffer(element) {
   const arrItems = ["2 PAIRES A LA VUE", "1 OPTIQUE", "ANTI-LUMIERE BLEUE", "+ 1 SOLAIRE**"];
 
@@ -63,6 +87,8 @@ function textOffer(element) {
     createPubText("div", "infos--section--title--commercial--offer", "p", "commercial--offer", arrItems);
 
     infosSection.insertBefore(document.querySelector(".infos--section--title--commercial--offer"),element);
+
+    responsive('.infos--section--title--commercial--offer', 'infos--section--title--commercial--offer--responsive');
 
     location();
   }, 2000);
@@ -98,11 +124,14 @@ function location() {
     htmlButton.appendChild(iconButton);
     infosSection.appendChild(document.querySelector(".infos--section--title--location"));
     document.querySelector(".infos--section--title--location").appendChild(htmlButton);
+
+    responsive('.infos--section--title--location', 'infos--section--title--location--responsive');
   }, 2000);
 }
 
 function app() {
   pubSlogan();
+  responsive('.infos--section--title', 'infos--section--title--responsive');
 }
 
 app();
