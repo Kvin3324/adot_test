@@ -1,0 +1,236 @@
+@font-face {
+  font-family: "HelveticaNeueLTStdCn";
+  src: url("./utils/font/HelveticaNeueLTStdCn.woff") format("woff");
+}
+
+body {
+  font-family: "HelveticaNeueLTStdCn";
+  margin: 0;
+}
+
+/* STYLE INFOS SECTION */
+.infos--section {
+  background-color: #50acdb;
+  color: white;
+  height: 59%;
+}
+/* DIV LOGO */
+.infos--section--img {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.infos--section--logo {
+  margin-top: 18%;
+  margin-bottom: 5%;
+  width: 15%;
+  border-radius: 50px;
+  background-color: #50acdb;
+}
+
+/* DIV PRINCIPAL TEXT */
+.infos--section--title {
+  text-align: center;
+}
+
+.infos--section--about--first, .infos--section--about--second, .infos--section--about--third, .infos--section--about--fourth  {
+  position: relative;
+  animation: slideText reverse;
+}
+
+.infos--section--about--first {
+  animation-duration: 1s;
+}
+
+.infos--section--about--second {
+  animation-duration: 1.1s;
+}
+
+.infos--section--about--third {
+  animation-duration: 1.2s;
+}
+
+.infos--section--about--fourth {
+  animation-duration: 1.3s;
+}
+
+@keyframes slideText {
+  0%   {left:0px; top:0px;}
+  100% {left:200px; top:0px;}
+}
+
+.infos--section--title p {
+  font-size: 1.6em;
+}
+
+/* DIV TEXT OFFER */
+.infos--section--title--offer {
+  text-align: center;
+  /* margin-top: 25%; */
+  line-height: 0.3;
+}
+
+.infos--section--offer--logo {
+  position: relative;
+  top: 12px;
+  right: 148px;
+  width: 15%;
+  border-radius: 50px;
+  background-color: #50acdb;
+  /* animation: floatBubble 2s ease-out;
+  animation-direction: normal; */
+  /* top: -51px;
+  left: 4%; */
+  /* animation-name: slideLogo;
+  animation-duration: 4s; */
+}
+
+/* @keyframes  slideLogo {
+  0% {left: 100px; top: 100px};
+  100% {left: 4px; top: 50px};
+} */
+
+/* @keyframes floatBubble { */
+  /* 0%       { transform: translatex(-30px) translatey(-30px); }
+  50%      { transform: translatex(20px) translatey(20px); }
+  100%     { transform: translatex(-30px) translatey(-30px); } */
+  /* 0% { */
+    /* top: 20px;
+    left: 150px; */
+    /* bottom: 50px;
+    right: 150px; */
+  /* }
+
+  /* 50% {
+    bottom: 50px;
+    right: 75px;
+  } */
+
+  /* 100% { */
+    /* top: 0px;
+    left: 0px; */
+    /* bottom: 90px;
+    right: 100px; */
+  /* } */
+/* } */
+
+.infos--section--offer--about--first, .infos--section--offer--about--second {
+  font-size: 1.8em;
+}
+
+.infos--section--offer--about--third {
+  margin-top: 20%;
+  font-size: 1.5em;
+}
+
+.infos--section--offer--about--fourth {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.infos--section--mentions {
+  text-align: left;
+  margin-top: 16%;
+  margin-left: 5px;
+  line-height: 0.2em;
+  animation: displayMentions 1s!important;
+}
+
+@keyframes displayMentions {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+.infos--section--mentions p {
+  font-size: 0.6em;
+}
+
+/* DIV COMMERCIAL OFFER */
+.infos--section--title--commercial--offer {
+  text-align: center;
+  margin-top: 18%;
+  line-height: 0.3;
+  word-spacing: 6px;
+}
+
+.infos--section--commercial--offer--about--first, .infos--section--commercial--offer--about--third {
+  font-size: 1.4em;
+}
+
+.infos--section--commercial--offer--about--second {
+  margin-bottom: 17px;
+}
+
+.infos--section--commercial--offer--about--second, .infos--section--commercial--offer--about--fourth {
+  font-size: 2.8em;
+  font-weight: bold;
+}
+
+/* DIV LOCATION */
+.infos--section--title--location {
+  text-align: center;
+  margin-top: 22%;
+  font-weight: bold;
+  font-size: 1.4em;
+  line-height: 0.4;
+}
+
+.infos--section--title--location--about--first, .infos--section--title--location--about--second, .infos--section--title--location--about--third {
+  position: relative;
+  animation-name: displayLocationText;
+}
+
+@keyframes displayLocationText {
+  0% {opacity: 0};
+  25% {opacity: 0.2};
+  50% {opacity: 0.5};
+  75% {opacity: 0.7};
+  100% {opacity: 1};
+}
+
+.location--button {
+  position: relative;
+  margin-top: 15%;
+  background: none;
+  color: white;
+  border: solid 1px white;
+  padding: 8px 18px 8px 24px;
+  opacity: 0.6;
+}
+
+.location--button i {
+  position: absolute;
+  left: 6px;
+}
+
+/* STYLE VIDEO SECTION */
+.video--section {
+  height: 41%;
+}
+
+.video--section--clip video {
+  width: 100%;
+}
+
+.load {
+  transition: ease;
+}
+
+/* STYLE MAP SECTION */
+.map--section--img {
+  height: 41%;
+}
+
+.img--map {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  animation: slideMap 1s;
+}
+
+@keyframes slideMap {
+  0% {top:500px;}
+  100% {top: 0px;}
+}
