@@ -1,6 +1,8 @@
 // // DOM variables
-const infosSection = document.querySelector(".infos--section");
+const infosSection = document.querySelector('.infos--section');
+const videoSection = document.querySelector('.video--section');
 
+// Function for responsive
 function responsive(parentDivName, newDivName) {
   const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
@@ -15,9 +17,9 @@ function responsive(parentDivName, newDivName) {
 
   // iPhone X Detection
   if (iOS && screen.width == 1125 && screen.height === 2436) {
-    document.querySelector('.infos--section').style.height = '66%';
-    document.querySelector('.video--section') && (document.querySelector('.video--section').style.height = '34%');
-    document.querySelector('.map--section--img') && (document.querySelector('.map--section--img').style.height = '100%');
+    infosSection.style.height = '66%';
+    videoSection && (videoSection.style.height = '34%');
+    document.querySelector(".map--section--img") && (document.querySelector(".map--section--img").style.height = '100%');
     document.querySelector(`${parentDivName}`).classList.add(`${newDivName}`);
   }
 }
@@ -77,7 +79,7 @@ function pubSlogan() {
   }, 2000);
 }
 
-// // // Function to display offer text
+// Function to display offer text
 function textOffer(element) {
   const arrItems = ["2 PAIRES A LA VUE", "1 OPTIQUE", "ANTI-LUMIERE BLEUE", "+ 1 SOLAIRE**"];
 
@@ -101,7 +103,7 @@ function location() {
   setTimeout(() => {
     document.querySelector(".infos--section--title--commercial--offer").remove();
     document.querySelector(".infos--section--mentions").remove();
-    document.querySelector(".video--section").classList.replace("video--section", "map--section");
+    videoSection.classList.replace("video--section", "map--section");
     document.querySelector(".video--section--clip").classList.replace("video--section--clip", "map--section--img");
     document.querySelector(".map--section--img").removeChild(document.querySelector("video"));
 
