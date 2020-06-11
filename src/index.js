@@ -3,8 +3,8 @@ const infosSection = document.querySelector('.infos--section');
 const videoSection = document.querySelector('.video--section');
 
 // Function for responsive
-function responsive(parentDivName, newDivName) {
-  const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+function responsive(parentDivName, newDivName, screenWidth, screenHeight) {
+  const iOS = navigator.userAgent.includes('iPhone');
 
   // Get the device pixel ratio
   const ratio = window.devicePixelRatio || 1;
@@ -16,7 +16,7 @@ function responsive(parentDivName, newDivName) {
   };
 
   // iPhone X Detection
-  if (iOS && screen.width == 1125 && screen.height === 2436) {
+  if (iOS && screen.width == screenWidth && screen.height === screenHeight) {
     infosSection.style.height = '66%';
     videoSection && (videoSection.style.height = '34%');
     document.querySelector(".map--section--img") && (document.querySelector(".map--section--img").style.height = '100%');
@@ -72,8 +72,9 @@ function pubSlogan() {
 
     infosSection.appendChild(htmlDivMentions);
 
-    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive');
-    responsive('.infos--section--mentions', 'infos--section--mentions--responsive');
+    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive', 1125, 2436);
+    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive--iSE', 640, 1136);
+    responsive('.infos--section--mentions', 'infos--section--mentions--responsive', 1125, 2436);
 
     textOffer(htmlDivMentions);
   }, 2000);
@@ -90,7 +91,8 @@ function textOffer(element) {
 
     infosSection.insertBefore(document.querySelector(".infos--section--title--commercial--offer"),element);
 
-    responsive('.infos--section--title--commercial--offer', 'infos--section--title--commercial--offer--responsive');
+    responsive('.infos--section--title--commercial--offer', 'infos--section--title--commercial--offer--responsive', 1125, 2436);
+    responsive('.infos--section--title--commercial--offer', 'infos--section--title--commercial--offer--responsive--iSE', 640, 1136);
 
     location();
   }, 2000);
@@ -127,13 +129,10 @@ function location() {
     infosSection.appendChild(document.querySelector(".infos--section--title--location"));
     document.querySelector(".infos--section--title--location").appendChild(htmlButton);
 
-    responsive('.infos--section--title--location', 'infos--section--title--location--responsive');
+    responsive('.infos--section--title--location', 'infos--section--title--location--responsive', 1125, 2436);
+    responsive('.map--section--img', 'map--section--img--responsive--iSE', 640, 1136);
   }, 2000);
 }
 
-function app() {
-  pubSlogan();
-  responsive('.infos--section--title', 'infos--section--title--responsive');
-}
-
-app();
+pubSlogan();
+responsive('.infos--section--title', 'infos--section--title--responsive', 1125, 2436);
