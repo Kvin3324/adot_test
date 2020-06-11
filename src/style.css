@@ -226,3 +226,16 @@ body {
   font-size: 1.8em;
   margin-top: 34%;
 }
+
+/* STYLE RESPONSIVE: IPHONE SE */
+.infos--section--title--offer--responsive--iSE, .infos--section--title--commercial--offer--responsive--iSE {
+  line-height: 0.4;
+}
+
+.map--section--img--responsive--iSE {
+  height: 100%;
+}
+
+.map--section--img--responsive--iSE {
+  height: 100%;
+}
