@@ -1,4 +1,4 @@
-// // DOM variables
+// DOM variables
 const infosSection = document.querySelector('.infos--section');
 const videoSection = document.querySelector('.video--section');
 
@@ -20,21 +20,21 @@ function responsive(parentDivName, newDivName, screenWidth, screenHeight) {
     infosSection.style.height = '66%';
     videoSection && (videoSection.style.height = '34%');
     document.querySelector(".map--section--img") && (document.querySelector(".map--section--img").style.height = '100%');
-    document.querySelector(`${parentDivName}`).classList.add(`${newDivName}`);
+    document.querySelector(`${parentDivName}`).classList.add(`${newDivName}`); // Give a new class name
   }
 }
 
 // Function to create elements
-function createPubText(parentDomElement, ParentClassnameElement, childDomElement, childClassnameElement, arrItems = []) {
+function createPubText(ParentClassNameElement, childClassNameElement, arrText = []) {
   const positionItem = ["first", "second", "third", "fourth"];
 
-  let htmlDiv = document.createElement(`${parentDomElement}`);
-  htmlDiv.setAttribute("class", `${ParentClassnameElement}`);
+  let htmlDiv = document.createElement('div');
+  htmlDiv.setAttribute("class", `${ParentClassNameElement}`);
 
-  for (let i = 0; i < arrItems.length; i++) {
-    let htmlContent = document.createElement(`${childDomElement}`);
-    htmlContent.setAttribute("class", `infos--section--${childClassnameElement}--about--${positionItem[i]} infos--section--about--${positionItem[i]}`);
-    htmlContent.innerHTML = `${arrItems[i]}`;
+  for (let i = 0; i < arrText.length; i++) {
+    let htmlContent = document.createElement('p');
+    htmlContent.setAttribute("class", `infos--section--${childClassNameElement}--about--${positionItem[i]} infos--section--about--${positionItem[i]}`);
+    htmlContent.innerHTML = `${arrText[i]}`;
     htmlDiv.append(htmlContent);
   }
 
@@ -43,14 +43,14 @@ function createPubText(parentDomElement, ParentClassnameElement, childDomElement
 
 // Function to display slogan text after 2s
 function pubSlogan() {
-  const arrItems = ["Avec", "le pack Konnecté", "A partir de", "99€*"];
+  const arrText = ["Avec", "le pack Konnecté", "A partir de", "99€*"];
 
   setTimeout(() => {
     document.querySelector(".infos--section--title").remove();
     document.querySelector(".infos--section--logo").classList.remove("infos--section--logo");
     document.querySelector("img").classList.add("infos--section--offer--logo");
 
-    createPubText("div", "infos--section--title--offer", "p", "offer", arrItems);
+    createPubText("infos--section--title--offer", "offer", arrText);
 
     let htmlDivMentions = document.createElement("div");
     htmlDivMentions.setAttribute("class", "infos--section--mentions");
@@ -73,8 +73,8 @@ function pubSlogan() {
     infosSection.appendChild(htmlDivMentions);
 
     responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive', 1125, 2436);
-    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive--iSE', 640, 1136);
     responsive('.infos--section--mentions', 'infos--section--mentions--responsive', 1125, 2436);
+    responsive('.infos--section--title--offer', 'infos--section--title--offer--responsive--iSE', 640, 1136);
 
     textOffer(htmlDivMentions);
   }, 2000);
@@ -82,12 +82,12 @@ function pubSlogan() {
 
 // Function to display offer text
 function textOffer(element) {
-  const arrItems = ["2 PAIRES A LA VUE", "1 OPTIQUE", "ANTI-LUMIERE BLEUE", "+ 1 SOLAIRE**"];
+  const arrText = ["2 PAIRES A LA VUE", "1 OPTIQUE", "ANTI-LUMIERE BLEUE", "+ 1 SOLAIRE**"];
 
   setTimeout(() => {
     document.querySelector(".infos--section--title--offer").remove();
 
-    createPubText("div", "infos--section--title--commercial--offer", "p", "commercial--offer", arrItems);
+    createPubText("infos--section--title--commercial--offer", "commercial--offer", arrText);
 
     infosSection.insertBefore(document.querySelector(".infos--section--title--commercial--offer"),element);
 
@@ -100,7 +100,7 @@ function textOffer(element) {
 
 // Function to display location shop
 function location() {
-  const arrItems = ["KRYS PALAISEAU - PARIS", "55 RUE DE PARIS","91120 PALAISEAU"];
+  const arrText = ["KRYS PALAISEAU - PARIS", "55 RUE DE PARIS","91120 PALAISEAU"];
 
   setTimeout(() => {
     document.querySelector(".infos--section--title--commercial--offer").remove();
@@ -109,7 +109,7 @@ function location() {
     document.querySelector(".video--section--clip").classList.replace("video--section--clip", "map--section--img");
     document.querySelector(".map--section--img").removeChild(document.querySelector("video"));
 
-    createPubText("div", "infos--section--title--location", "p", "title--location", arrItems);
+    createPubText("infos--section--title--location", "title--location", arrText);
 
     let htmlButton = document.createElement("button");
     htmlButton.setAttribute("class", "location--button");
